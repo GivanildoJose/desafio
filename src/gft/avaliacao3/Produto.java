@@ -9,19 +9,20 @@ public class Produto {
 	
 	public Produto(String descricao, Double valorReal) {
 		this.descricao = descricao;
-		this.valorFinal = valorReal;
+		this.valorReal = valorReal;
 	}
 	
 	
 	public void aplicarOperacao(Operacao operacao, Integer percentual) {
 		if (percentual > 0) {
+			Double valorComPorcentagem =  this.valorReal * (percentual/100.0);
 			switch (operacao) {
-			case ACRESCIMO:
-				this.valorFinal = this.valorReal + ()
-				break;
-			case DESCONTO:
-				
-				break;
+				case ACRESCIMO:
+					this.valorFinal = this.valorReal + valorComPorcentagem;
+					break;
+				case DESCONTO:
+					this.valorFinal = this.valorReal - valorComPorcentagem;
+					break;
 			}
 		} else {
 			this.valorFinal = this.valorReal;
